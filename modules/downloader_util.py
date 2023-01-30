@@ -14,10 +14,11 @@ class Torrent_Downloader():
     def __post_init__(self):
         try:
             is_transmission_cli = check_output(['which','transmission-cli']) == "/usr/bin/transmission-cli"
-            if is_transmission_cli:
-                print('transmission-cli Installed...')
+            is_tmux = check_output(['which','tmux']) == '/usr/bin/tmux'
+            if is_transmission_cli and is_tmux:
+                print('transmission-cli and tmux Installed...')
         except CalledProcessError as e:
-            print(f"{e} \nPlease install transmission-cli command with: sudo apt install transmission-cli")
+            print(f"{e} \nPlease install dependencies with: sudo apt install transmission-cli tmux")
             sys.exit()
 
         magnet_list_file = open(self.magnet_list_file, 'r')
