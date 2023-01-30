@@ -16,7 +16,7 @@ conda create -n pyTorr python==3.9.* -y ; conda activate pyTorr
 ```
 
 ## Run
-**NOTE** You must run it with python>=3.9.*
+**NOTE:** You must run it with python>=3.9.*
 
 You need to provide a `file.txt` with the magnet links (one per line), as follows
 ```txt
