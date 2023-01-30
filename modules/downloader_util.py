@@ -31,6 +31,7 @@ class Torrent_Downloader():
         tmux_session_name = 'pyTorrent'
         system(f"tmux new-session -d -s {tmux_session_name}")
         for magnet in self.magnet_list:
+            print(magnet)
             download_command = f'transmission-cli \\"{magnet}\\" -w {self.download_dir}'
             system(f"tmux send-keys -t {tmux_session_name}.0 \"{download_command}\" ENTER")
             download_complete : bool = False
