@@ -23,7 +23,7 @@ class Torrent_Downloader():
 
         magnet_list_file = open(self.magnet_list_file, 'r')
         object.__setattr__(self,'magnet_list',
-            [line.rstrip() for line in magnet_list_file.readlines()]
+            list(filter(lambda line : line[0] != '#',[line.rstrip() for line in magnet_list_file.readlines()]))
         )
         magnet_list_file.close()
     
