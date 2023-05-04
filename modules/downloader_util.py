@@ -34,7 +34,7 @@ class Torrent_Downloader():
         system(f"tmux new-session -d -s {tmux_session_name}")
         for magnet in self.magnet_list:
             print(magnet,'\n')
-            download_command = f'transmission-cli \\"{magnet}\\" --no-downlimit --uplimit 100 -w {self.download_dir}'
+            download_command = f'transmission-cli \\"{magnet}\\" --no-downlimit --uplimit 100 -w \\"{self.download_dir}\\"'
             system(f"tmux send-keys -t {tmux_session_name}.0 \"{download_command}\" ENTER")
             download_complete : bool = False
             verify_command = ['tmux', 'capture-pane', '-p', '-t' ,tmux_session_name]
