@@ -31,6 +31,7 @@ class Torrent_Downloader():
     
     def start_download(self):
         tmux_session_name = 'pyTorrent'
+        system('killall transmission-cli')
         system(f"tmux new-session -d -s {tmux_session_name}")
         for magnet in self.magnet_list:
             print(magnet,'\n')
