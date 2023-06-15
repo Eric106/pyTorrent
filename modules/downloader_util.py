@@ -26,7 +26,7 @@ class Torrent_Downloader():
         for i_magnet, magnet in enumerate(magnet_list.copy()):
             if len(magnet) == 0:
                 magnet_list.pop(i_magnet)
-            elif magnet[0] != '#':
+            elif magnet[0] == '#':
                 magnet_list.pop(i_magnet)
         object.__setattr__(self,'magnet_list', magnet_list)
         del magnet_list
