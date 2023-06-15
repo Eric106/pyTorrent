@@ -24,15 +24,16 @@ class Torrent_Downloader():
         magnet_list_file = open(self.magnet_list_file, 'r')
         magnet_list = magnet_list_file.readlines()
         for i_magnet, magnet in enumerate(magnet_list.copy()):
-            if len(magnet) != 0:
-                if magnet[0] != '#':
-                    magnet_list.pop(i_magnet)
+            if len(magnet) == 0:
+                magnet_list.pop(i_magnet)
+            elif magnet[0] != '#':
+                magnet_list.pop(i_magnet)
         object.__setattr__(self,'magnet_list', magnet_list)
         del magnet_list
         magnet_list_file.close()
     
     def start_download(self):
-        tmux_session_name = 'pyTorrent'
+        tmux_session_name = 'pyTorr'
         system('killall transmission-cli')
         system(f"tmux new-session -d -s {tmux_session_name}")
         for magnet in self.magnet_list:
