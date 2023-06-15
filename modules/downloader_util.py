@@ -52,3 +52,4 @@ class Torrent_Downloader():
                 if download_complete:
                     system(stop_command)
                     sleep(10)
+                system('clear')
