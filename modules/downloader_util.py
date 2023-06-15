@@ -44,7 +44,7 @@ class Torrent_Downloader():
             verify_command = ['tmux', 'capture-pane', '-p', '-t' ,tmux_session_name]
             stop_command = f'tmux send-keys -t {tmux_session_name}.0 C-c'
             while not download_complete:
-                tmux_content = check_output(verify_command).decode()
+                tmux_content = check_output(verify_command, shell=False).decode(encoding='utf-8', errors='ignore')
                 tmux_content = '\n'.join(tmux_content.split('\n')[-5:])
                 download_complete = 'seeding' in tmux_content.lower()
                 print(tmux_content)
