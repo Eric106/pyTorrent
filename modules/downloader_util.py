@@ -22,11 +22,13 @@ class Torrent_Downloader():
             sys.exit()
 
         magnet_list_file = open(self.magnet_list_file, 'r')
-        object.__setattr__(self,'magnet_list',
-            list(filter(
-                lambda line : line[0] != '#',
-                [line.rstrip() for line in magnet_list_file.readlines()]))
-        )
+        magnet_list = magnet_list_file.readlines()
+        for i_magnet, magnet in enumerate(magnet_list.copy()):
+            if len(magnet) != 0:
+                if magnet[0] != '#':
+                    magnet_list.pop(i_magnet)
+        object.__setattr__(self,'magnet_list', magnet_list)
+        del magnet_list
         magnet_list_file.close()
     
     def start_download(self):
@@ -44,6 +46,7 @@ class Torrent_Downloader():
                 tmux_content = check_output(verify_command).decode()
                 tmux_content = '\n'.join(tmux_content.split('\n')[-5:])
                 download_complete = 'seeding' in tmux_content.lower()
+                print(tmux_content)
                 sleep(5)
                 if download_complete:
                     system(stop_command)
