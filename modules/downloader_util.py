@@ -24,6 +24,7 @@ class Torrent_Downloader():
         magnet_list_file = open(self.magnet_list_file, 'r')
         magnet_list = magnet_list_file.readlines()
         for i_magnet, magnet in enumerate(magnet_list.copy()):
+            magnet_list[i_magnet] = magnet.strip().replace("\n","")
             if len(magnet) == 0:
                 magnet_list.pop(i_magnet)
             elif magnet[0] == '#':
