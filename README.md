@@ -10,7 +10,7 @@ Install dependencies
 ```shell
 sudo apt install transmission-cli tmux
 ```
-You may also want to add the [pyTorrent binary](./dist/) to your `/usr/bin/` directory. Use the [install.sh](./install.sh) scrip
+You may also want to add the [pyTorrent binary](./dist/) to your `/usr/bin/` directory. Use the [install.sh](./install.sh) script
 ```shell
 sudo bash install.sh
 ```
