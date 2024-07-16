@@ -10,9 +10,9 @@ Install dependencies
 ```shell
 sudo apt install transmission-cli tmux
 ```
-You may also want to add the [pyTorrent binary](dist/) to your `/usr/bin/` directory
+You may also want to add the [pyTorrent binary](./dist/) to your `/usr/bin/` directory. Use the [install.sh](./install.sh) scrip
 ```shell
-sudo cp dist/pyTorrent_ /usr/bin/pyTorrent
+sudo bash install.sh
 ```
 
 ## Run
@@ -21,7 +21,7 @@ You need to provide a `file.txt` with the magnet links (one per line), as follow
 magnet:?xt=urn:btih:DED7E2789886BB......
 magnet:?xt=urn:btih:F3DCDC3A1FC67B......
 ```
-Then simply run the [pyTorrent binary](dist/) using as parameters the `file.txt` and the download directory
+Then simply run the [pyTorrent binary](./dist/) using as parameters the `file.txt` and the download directory
 ```shell
 pyTorrent -f file.txt -d download_dir/
 ```
@@ -34,5 +34,5 @@ conda create -n pyTorr python==3.10.* -y ; conda activate pyTorr ; pip install -
 ```shell
 bash make.sh
 ```
-This will create a fresh [binary](dist/) for your distro at `dist/`
+This will create a fresh [binary](./dist/) for your distro at `dist/`
 
