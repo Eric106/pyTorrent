@@ -12,7 +12,7 @@ sudo apt install transmission-cli tmux
 ```
 You may also want to add the [pyTorrent binary](./dist/) to your `/usr/bin/` directory. Use the [install.sh](./install.sh) script
 ```shell
-sudo bash install.sh
+sudo bash ./install.sh
 ```
 
 ## Run
@@ -32,7 +32,7 @@ pyTorrent -f file.txt -d download_dir/
 conda create -n pyTorr python==3.10.* -y ; conda activate pyTorr ; pip install -r requirements.txt
 ```
 ```shell
-bash make.sh
+bash ./make.sh
 ```
 This will create a fresh [binary](./dist/) for your distro at `dist/`
 
