@@ -27,9 +27,9 @@ pyTorrent -f file.txt -d download_dir/
 ```
 
 ## Make binary 
-> (**OPTIONAL**) Install conda enviroment and compile binary
+> (**OPTIONAL**) Install uv enviroment and compile binary
 ```shell
-conda create -n pyTorr python==3.10.* -y ; conda activate pyTorr ; pip install -r requirements.txt
+cd ~/uv_envs ; uv venv pyTorr --seed --python 3.12 ; source pyTorr/bin/activate ; pip install -r requirements.txt
 ```
 ```shell
 bash ./make.sh
